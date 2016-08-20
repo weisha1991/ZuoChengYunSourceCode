@@ -10,6 +10,7 @@ namespace chapter2 {
 		Node *next;
 		Node(int v = 0) :value(v), next(NULL) {}
 	};
+
 	class singleList {
 		friend ostream& operator<<(ostream&os, const singleList&);
 	public:
@@ -276,15 +277,15 @@ namespace chapter2 {
 
 		void removeRep(){
 			Node *cur=head,*prev=NULL,*next=NULL;
-			while(cur){
-				
+			while(cur){				
 				prev=cur;
 				next=cur->next;
 				while(next){
 					if(cur->value==next->value){
 						Node *tmp=next;
 						
-						prev->next=next->next;
+						prev->
+						next=next->next;
 						next=prev->next;
 						delete tmp;
 						prev=next;
@@ -298,6 +299,107 @@ namespace chapter2 {
 			}
 			cout<<"done"<<endl;
 		}
+
+		void removeValue(int num){
+			Node *newHead=head;
+			Node *next=NULL;
+			while(newHead){
+				next=newHead->next;
+				if(newHead->value!=num)
+					break;
+				delete newHead;
+				newHead=next;
+			}
+			if(!newHead)
+			{
+				head=newHead;
+				return;
+			}
+
+			Node *cur=newHead,*prev=newHead;
+			while(cur){
+				if(cur->value==num){
+					Node *tmp=cur;
+					prev->next=cur->next;
+					cur=cur->next;
+					delete tmp;
+				}
+				else{
+					prev=cur;
+					cur=cur->next;
+				}
+			}
+			head=newHead;
+		}
+
+		void selectionSort(){
+			Node *sortedTail=NULL;
+			Node *cur=head;
+			Node *smallprev=NULL;
+			Node *small=NULL;
+			while(cur){
+				small=cur;
+				smallprev=getSmallestNodePrev(cur);
+				if(smallprev){
+					small=smallprev->next;
+					smallprev->next=small->next;
+				}
+				cur=(cur==small)?cur->next:cur;
+				if(!sortedTail)
+					head=small;
+				else
+					sortedTail->next=small;
+				sortedTail=small;
+			}
+
+		}
+
+		void insertKeepSorted(int num){
+			Node *node=new Node(num);
+			if(!head){				
+				head=node;
+				return;
+			}
+			if(head->value>=num){
+				node->next=head;
+				head=node;
+				return;
+			}
+			Node *prev=head;
+			Node *cur=head->next;
+			while(cur){
+				if(prev->value<=num&&cur->value>=num)
+					break;				
+				prev=cur;
+				cur=cur->next;
+			}
+			prev->next=node;
+			node->next=cur;
+
+		}
+		
+		void relocate(){
+			if(!head||!head->next)
+				return;
+			Node *mid=head,*right=head->next;
+			while(right->next&&right->next->next){
+				mid=mid->next;
+				right=right->next->next;
+			}
+			right=mid->next;
+			mid->next=NULL;
+			Node *next=NULL;
+			Node *left=head;
+			while(left->next){
+				next=right->next;
+				right->next=left->next;
+				left->next=right;
+				left=right->next;
+				right=next;
+			}
+			left->next=right;
+		}
+		
 	private:
 		Node* resign1(stack<Node*>&s, Node *left, Node *right) {
 			Node *cur = s.top();
@@ -398,15 +500,34 @@ namespace chapter2 {
 				left->next=end;
 			start->next=right;
 		}
+
+		Node* getSmallestNodePrev(Node* head){
+			Node *smallprev=NULL,*small=head;
+			Node *prev=head,*cur=head->next;
+			while(cur){
+				if(cur->value<small->value){
+					smallprev=prev,small=cur;
+				}
+				prev=cur;
+				cur=cur->next;
+			}
+			return smallprev;
+		}
 		Node *head;
 	};	
 
 	ostream& operator<<(ostream&os, const singleList&);
+	
 
 	class loopList {
 		friend 	ostream& operator<<(ostream&os, const loopList &sl) ;
 	public:
 		loopList():head(NULL){}
+		loopList(initializer_list<int> il) {
+			head = NULL;
+			for (auto elem : il)
+				insert(elem);
+		}
 		~loopList() { clear(); }
 		void insert(int val) {
 			if (!head)
@@ -437,6 +558,7 @@ namespace chapter2 {
 			delete last;
 			head = NULL;
 		}
+
 		void josephusKill(int m) {
 			if (!head || head->next == head || m < 1)
 				return;
@@ -470,12 +592,33 @@ namespace chapter2 {
 			head = cur;
 		}
 
+		void insertNum(int num){
+			Node *node=new Node(num);
+			if(!head){
+				node->next=node;
+				head=node;
+				return;
+			}
+			Node *prev=head;
+			Node *cur=head->next;
+			while(cur!=head){
+				if(prev->value<=num&&cur->value>=num)
+					break;
+				prev=cur;
+				cur=cur->next;
+			}
+			prev->next=node;
+			node->next=cur;
+			cout<<head->value<<node->value<<endl;
+			head=head->value<num?head:node;
+		}
 	private:
 		int getLiveNodeId(int len, int m) {
 			if (len == 1)
 				return 1;
 			return (getLiveNodeId(len - 1, m) + m - 1) % len + 1;
 		}
+
 		Node *head;
 	};
 	ostream& operator<<(ostream&os, const loopList &sl);
@@ -486,10 +629,21 @@ namespace chapter2 {
 		randNode *next;
 		randNode(int val):val(val),randptr(NULL),next(NULL){}
 	};
+
+	struct treeNode{
+		int value;
+		treeNode *left;
+		treeNode *right;
+		treeNode(int val):value(val),left(NULL),right(NULL){}
+	};
+
 	randNode* createRandListInstance();
 	void destroyRandNodeList(randNode *head);
 	ostream& printRandNodeList(ostream &os, randNode *head);
 	randNode* copyrandList(randNode *head);
+	void inorderSaveInqueue(treeNode *root,queue<treeNode*>&q);
+	treeNode* btreeConverToDoubleListV1(treeNode *root);
+	
 
 }
 #endif

@@ -101,4 +101,30 @@ namespace chapter2 {
 		}
 		return os;
 	}
+
+	void inorderSaveInqueue(treeNode *root,queue<treeNode*>&q){
+		if(root){
+			inorderSaveInqueue(root->left,q);
+			q.push(root);
+			inorderSaveInqueue(root->right,q);
+		}
+	}
+
+	treeNode* btreeConverToDoubleListV1(treeNode *root){
+		queue<treeNode*> q;
+		inorderSaveInqueue(root,q);
+		treeNode *head=q.front();
+		treeNode *prev=head;
+		prev->left=NULL;
+		treeNode *cur=NULL;
+		while(!q.empty()){
+			cur=q.front();
+			q.pop();
+			prev->right=cur;
+			cur->left=prev;
+			prev=cur;
+		}
+		prev->right=NULL;
+		return head;
+	}
 }

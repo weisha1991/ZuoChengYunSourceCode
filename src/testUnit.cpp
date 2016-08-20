@@ -181,4 +181,39 @@ void testChapter2() {
 	cout<<sl6<<endl;
 	sl6.removeRep();
 	cout<<sl6<<endl;
+
+	cout<<"删除所有指定元素的节点"<<endl;
+	singleList sl7(initializer_list<int>{3,3,3,1,2,3,34,5,3,1});
+	sl7.reverseList();
+	cout<<sl7<<endl;
+	sl7.removeValue(3);
+	cout<<sl7<<endl;
+
+	cout<<"单链表的选择排序"<<endl;
+	singleList sl8(initializer_list<int>{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,22,12,121,3,4,5,});
+	cout<<sl8<<endl;
+	sl8.selectionSort();
+	cout<<sl8<<endl;
+
+	cout<<"在有序环形链表插入节点，保持有序态"<<endl;
+	loopList ll1(initializer_list<int>{1,3,4});
+	cout<<ll1<<endl;
+	ll1.insertNum(5);
+	cout<<ll1<<endl;
+	ll1.insertNum(0);
+	cout<<ll1<<endl;
+	singleList sl9(initializer_list<int>{4,3,1});
+	cout<<sl9<<endl;
+	sl9.insertKeepSorted(5);
+	cout<<sl9<<endl;
+	sl9.insertKeepSorted(0);
+	cout<<sl9<<endl;
+	sl9.insertKeepSorted(2);
+	cout<<sl9<<endl;
+
+	cout<<"按照左半右半区间调整单链表结构"<<endl;
+	singleList sl10(initializer_list<int>{6,5,4,3,2,1});
+	cout<<sl10<<endl;
+	sl10.relocate();
+	cout<<sl10<<endl;
 }
