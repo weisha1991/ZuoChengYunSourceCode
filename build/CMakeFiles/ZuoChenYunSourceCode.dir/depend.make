@@ -16,12 +16,14 @@ CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o: /home/long/workspace/ZuoChe
 
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter1.h
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter2.h
+CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter3.h
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/main.cpp
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/publicHeader.h
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/testUnit.h
 
 CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter1.h
 CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter2.h
+CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/chapter3.h
 CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/publicHeader.h
 CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/testUnit.cpp
 CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/testUnit.h

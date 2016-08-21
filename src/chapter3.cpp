@@ -112,4 +112,93 @@ namespace chapter3{
             cout<<endl;
         }
     }
+
+    string intTostr(int val){        
+        ostringstream os;
+        os<<val;
+        return os.str();
+    }
+    int strToint(const string &s){
+       istringstream is(s);
+       int num=0;
+       is>>num;
+       return num;
+    }
+
+    vector<string> split(const string& src, string separate_character)
+    {
+        vector<string> strs;
+        
+        int separate_characterLen = separate_character.size();//分割字符串的长度,这样就可以支持如“,,”多字符串的分隔符
+        int lastPosition = 0,index = -1;
+        while (-1 != (index = src.find(separate_character,lastPosition)))
+        {
+            strs.push_back(src.substr(lastPosition,index - lastPosition));
+            lastPosition = index + separate_characterLen;
+        }
+        string lastString = src.substr(lastPosition);//截取最后一个分隔符后的内容
+        if (!lastString.empty())
+            strs.push_back(lastString);//如果最后一个分隔符后还有内容就入队
+        return strs;
+    }
+
+    string serialBypreorder(treeNode *root){
+        if(!root)
+            return string("#!");
+        // cout<<intTostr(root->value)<<endl;   
+        string ret=intTostr(root->value)+"!";
+        ret+=serialBypreorder(root->left);
+        ret+=serialBypreorder(root->right);
+        return ret;
+    }
+
+    treeNode *reconverByprevorder(queue<string> &q){
+        string value=q.front();
+        q.pop();
+        if(value=="#")
+            return NULL;
+        treeNode *head=new treeNode(strToint(value));
+        head->left=reconverByprevorder(q);
+        head->right=reconverByprevorder(q);
+        return head;
+    }
+    treeNode* recoverByprevstring(string prevStr){
+        vector<string> vals=split(prevStr,"!");
+// #define _DEBUG
+#ifdef _DEBUG
+        for(auto val:vals)
+            cout<<val<<endl;
+
+#endif        
+        queue<string> q;
+        for(auto estr:vals)
+            q.push(estr);
+        return reconverByprevorder(q);
+    }
+
+
+    string serialBylevel(treeNode *root){
+        if(!root)
+            return string("#!");
+        string res=intTostr(root->value)+"!";
+        queue<treeNode*> q;
+        q.push(root);
+        while(!q.empty()){
+            root=q.front();
+            q.pop();
+            if(root->left){
+                res+=intTostr(root->left->value)+"!";
+                q.push(root->left);
+            }
+            else
+                res+="#!";
+            if(root->right){
+                res+=intTostr(root->right->value)+"!";
+                q.push(root->right);
+            }
+            else
+                res+="#!";
+        }
+        return res;
+    }
 }

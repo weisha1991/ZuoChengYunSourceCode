@@ -217,3 +217,19 @@ void testChapter2() {
 	sl10.relocate();
 	cout<<sl10<<endl;
 }
+
+void testChapter3(){
+	using namespace chapter3;		
+	cout<<"二叉树的序列化与反序列化"<<endl;
+	cout<<"1）先序遍历实现"<<endl;
+	string prevStr("1!2!4!#!#!#!3!#!5!#!#!");
+	treeNode *root=recoverByprevstring(prevStr);
+	inorderWalk(root);
+	preorderWalk(root);
+	postorderWalk(root);
+	string result=serialBypreorder(root);
+	cout<<prevStr<<endl;
+	cout<<result<<endl;
+	cout<<serialBylevel(root)<<endl;
+
+}
