@@ -2,7 +2,17 @@
 #include <sstream>
 
 namespace chapter3{
-
+    //释放二叉树的内存空间，将二叉树置空
+    void BTreeDestroy(treeNode *tree)
+    {
+        if(tree==NULL)
+        {
+            return;
+        }
+        BTreeDestroy(tree->left);
+        BTreeDestroy(tree->right);
+        delete tree;
+    }
 
     string getSpace(int cnt){
         string space;
@@ -15,8 +25,9 @@ namespace chapter3{
             return;
         printInorder(head->right,height+1,"v",len);
         string val;
-        std::ostringstream os(val);
+        std::ostringstream os;
         os<<to<<head->value<<to;
+        val=os.str();
         int lenM=val.size();
         int lenL=(len-lenM)/2;
         int lenR=len-lenM-lenL;
@@ -27,7 +38,7 @@ namespace chapter3{
     void printTree(treeNode *root){
         cout<<"Binany Tree:"<<endl;
         printInorder(root,0,"H",17);
-        
+        cout<<endl;
     }
 
     void preorderWalk(treeNode *root){
@@ -162,6 +173,7 @@ namespace chapter3{
         head->right=reconverByprevorder(q);
         return head;
     }
+
     treeNode* recoverByprevstring(string prevStr){
         vector<string> vals=split(prevStr,"!");
 // #define _DEBUG
@@ -175,7 +187,6 @@ namespace chapter3{
             q.push(estr);
         return reconverByprevorder(q);
     }
-
 
     string serialBylevel(treeNode *root){
         if(!root)
@@ -200,5 +211,88 @@ namespace chapter3{
                 res+="#!";
         }
         return res;
+    }
+    treeNode* createNodeFromstr(const string &str){
+        if(str=="#")
+            return NULL;
+        return new treeNode(strToint(str));
+    }
+
+    treeNode* reconBylevel(const string &str){
+        vector<string> values=split(str,"!");
+        int index=0;
+        treeNode *root=createNodeFromstr(values[index++]);
+        queue<treeNode*> q;
+        if(root)
+            q.push(root);
+        treeNode *node=NULL;    
+        while(!q.empty()){
+            node=q.front();
+            q.pop();
+            node->left=createNodeFromstr(values[index++]);
+            node->right=createNodeFromstr(values[index++]);
+            if(node->left)
+                q.push(node->left);
+            if(node->right)
+                q.push(node->right);
+        }
+        return root;
+    }
+
+    int preorderAndGotSum(treeNode *head,int sum,int preSum,
+                int level,int maxLen,unordered_map<int,int> &sumMap){
+        if(!head)
+            return maxLen;
+        int curSum=preSum+head->value;
+        if(sumMap.find(curSum)==sumMap.end())
+            sumMap.insert(make_pair(curSum,level));
+        if(sumMap.find(curSum-sum)!=sumMap.end())
+        {
+            auto iter=sumMap.find(curSum-sum);
+            maxLen=max(level-iter->second,maxLen);            
+        }
+        maxLen=preorderAndGotSum(head->left,sum,curSum,level+1,maxLen,sumMap);
+        maxLen=preorderAndGotSum(head->right,sum,curSum,level+1,maxLen,sumMap);
+        if(level==(sumMap.find(curSum)->second))
+            sumMap.erase(curSum);
+        return maxLen;        
+    }
+
+    int getMaxlen(treeNode *root,int sum){
+        unordered_map<int,int> sumMap;
+        sumMap.insert(make_pair(0,0));
+        return preorderAndGotSum(root,sum,0,1,0,sumMap);
+    }
+
+    treeNode* postOrder(treeNode *head,vector<int> &record){
+        if(!head){
+            record[0]=0;//存取节点个数
+            record[1]=INT_MAX;//存储最小值
+            record[2]=INT_MIN;//存储子数最大值
+            return NULL;
+        }
+        int value=head->value;
+        treeNode *left=head->left,*right=head->right;
+        treeNode *lBST=postOrder(left,record);
+        int lSize=record[0];
+        int lMin=record[1];
+        int lMax=record[2];
+        treeNode *rBst=postOrder(right,record);
+        int rSize=record[0];
+        int rMin=record[1];
+        int rMax=record[2];
+        record[1]=min(lMin,value);
+        record[2]=max(rMax,value);
+        if(left==lBST&&right==rBst&&lMax<value&&value<rMin){
+            record[0]=lSize+rSize+1;
+            return head;
+        }
+        record[0]=max(lSize,rSize);
+        return lSize>rSize?lBST:rBst;
+    }
+    
+    treeNode* largestSubBST(treeNode *root){
+        vector<int> record(3,0);
+        return postOrder(root,record);
     }
 }

@@ -230,6 +230,39 @@ void testChapter3(){
 	string result=serialBypreorder(root);
 	cout<<prevStr<<endl;
 	cout<<result<<endl;
-	cout<<serialBylevel(root)<<endl;
+	cout<<"2)层级遍历实现"<<endl;
+	string levelserial=serialBylevel(root);
+	treeNode *reconRoot=reconBylevel(levelserial);
+	inorderWalk(reconRoot);
+	preorderWalk(reconRoot);
+	postorderWalk(reconRoot);
+	cout<<"美观地打印二叉树"<<endl;
+	printTree(root);
 
+	cout<<"二叉树中累计和为指定值的最长路径的长度"<<endl;
+	string bstStr1("-3!3!-9!1!0!2!1!#!#!1!6!#!#!#!#!#!#!#!#!");
+	treeNode *root1=reconBylevel(bstStr1);
+	inorderWalk(root1);
+	cout<<"sum=6,MaxLen="<<getMaxlen(root1,6)<<endl;
+	cout<<"sum=-9,MaxLen="<<getMaxlen(root1,-9)<<endl;
+	cout<<"sum=1,MaxLen="<<getMaxlen(root1,1)<<endl;
+
+
+	cout<<"二叉树最大的bst子树"<<endl;
+	string bstStr2("6!1!12!0!3!10!13!#!#!#!#!4!14!20!16!#!#!#!#!#!#!#!#!2!5!11!15!#!#!#!#!#!#!#!#!#!#!#!#!");
+	treeNode *root2=reconBylevel(bstStr2);
+	auto cur=root2->right;
+	for(int i=0;i<2;++i)
+		cur=cur->left;
+	cur->left=new treeNode(2);
+	cur->right=new treeNode(5);
+	
+	inorderWalk(root2);
+	postorderWalk(root2);
+	treeNode *subroot1=largestSubBST(root2);
+	inorderWalk(subroot1);
+	BTreeDestroy(root);
+	BTreeDestroy(reconRoot);
+	BTreeDestroy(root1);
+	BTreeDestroy(root2);
 }
