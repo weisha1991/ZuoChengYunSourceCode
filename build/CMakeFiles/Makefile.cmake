@@ -12,7 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.2.2/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
-  "/home/long/workspace/程序员代码面试指南/src/CMakeLists.txt"
+  "/home/long/workspace/ZuoChengYunSourceCode/src/CMakeLists.txt"
   "/usr/share/cmake-3.2/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.2/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.2/Modules/CMakeCInformation.cmake"

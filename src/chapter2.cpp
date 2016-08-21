@@ -45,6 +45,7 @@ namespace chapter2 {
 		}
 
 	}
+	
 	randNode* createRandListInstance() {
 		randNode *head = new randNode(1);
 		head->next = new randNode(2);
@@ -54,6 +55,7 @@ namespace chapter2 {
 		head->next->next->randptr = head;
 		return head;
 	}
+
 	randNode* copyrandList(randNode *head) {
 		if (!head)
 			return head;

@@ -42,10 +42,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/long/workspace/程序员代码面试指南/src
+CMAKE_SOURCE_DIR = /home/long/workspace/ZuoChengYunSourceCode/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/long/workspace/程序员代码面试指南/build
+CMAKE_BINARY_DIR = /home/long/workspace/ZuoChengYunSourceCode/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/long/workspace/程序员代码面试指南/build/CMakeFiles /home/long/workspace/程序员代码面试指南/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/long/workspace/程序员代码面试指南/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -137,6 +137,30 @@ chapter2.s: chapter2.cpp.s
 chapter2.cpp.s:
 	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/chapter2.cpp.s
 .PHONY : chapter2.cpp.s
+
+chapter3.o: chapter3.cpp.o
+.PHONY : chapter3.o
+
+# target to build an object file
+chapter3.cpp.o:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.o
+.PHONY : chapter3.cpp.o
+
+chapter3.i: chapter3.cpp.i
+.PHONY : chapter3.i
+
+# target to preprocess a source file
+chapter3.cpp.i:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.i
+.PHONY : chapter3.cpp.i
+
+chapter3.s: chapter3.cpp.s
+.PHONY : chapter3.s
+
+# target to generate assembly for a file
+chapter3.cpp.s:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.s
+.PHONY : chapter3.cpp.s
 
 charpter1.o: charpter1.cpp.o
 .PHONY : charpter1.o
@@ -222,6 +246,9 @@ help:
 	@echo "... chapter2.o"
 	@echo "... chapter2.i"
 	@echo "... chapter2.s"
+	@echo "... chapter3.o"
+	@echo "... chapter3.i"
+	@echo "... chapter3.s"
 	@echo "... charpter1.o"
 	@echo "... charpter1.i"
 	@echo "... charpter1.s"

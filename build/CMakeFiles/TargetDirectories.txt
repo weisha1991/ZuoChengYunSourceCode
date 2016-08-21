@@ -1,1 +1,1 @@
-/home/long/workspace/程序员代码面试指南/build/CMakeFiles/ZuoChenYunSourceCode.dir
+/home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles/ZuoChenYunSourceCode.dir

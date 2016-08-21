@@ -6,4 +6,3 @@ cmake version>=2.8
 
 编译方法：
 运行batch.sh脚本。
-# ZuoChengYunSourceCode
