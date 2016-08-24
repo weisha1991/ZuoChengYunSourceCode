@@ -260,8 +260,26 @@ void testChapter3(){
 	inorderWalk(root2);
 	postorderWalk(root2);
 	treeNode *subroot1=largestSubBST(root2);
-	inorderWalk(subroot1);
+	// inorderWalk(subroot1);
+	cout<<"源BST"<<endl;
+	printTree(root2);
+	cout<<"最大子二叉搜索数"<<endl;
+	printTree(subroot1);
+
+	cout<<"最大的二叉搜索树拓扑结构"<<endl;
+	cout<<"树的结构"<<endl;
+	printTree(root2);
+	cout<<"method1:节点数目：";
+	cout<<bstTopoSize1(root2)<<endl;
+	cout<<"method2:节点数目";
+	cout<<bstTopoSize2(root2)<<endl;
 	BTreeDestroy(root);
+
+	cout<<"按层打印"<<endl;	
+	printByLevel(root2);
+	cout<<"ZigZag print"<<endl;
+	printByZigZag(root2);
+
 	BTreeDestroy(reconRoot);
 	BTreeDestroy(root1);
 	BTreeDestroy(root2);

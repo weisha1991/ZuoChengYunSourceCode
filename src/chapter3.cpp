@@ -295,4 +295,151 @@ namespace chapter3{
         vector<int> record(3,0);
         return postOrder(root,record);
     }
+
+
+    bool isBSTNode(treeNode *h,treeNode *n,int val){
+        if(!h)
+            return false;
+        if(h==n)
+            return true;
+        return isBSTNode(h->value>val?h->left:h->right,n,val);
+    }
+
+    int maxTOPO(treeNode *h,treeNode *n){
+        if(h&&n&&isBSTNode(h,n,n->value))
+            return maxTOPO(h,n->left)+maxTOPO(h,n->right)+1;
+        return 0;
+    }
+
+    int bstTopoSize1(treeNode *head){
+        if(!head)
+            return 0;
+        int maxVal=maxTOPO(head,head);
+        // cout<<maxVal<<endl;
+        maxVal=max(bstTopoSize1(head->left),maxVal);
+        maxVal=max(bstTopoSize1(head->right),maxVal);
+        return maxVal;
+    }
+    //flag is true means goto the right edge,otherwise false means goto left edge
+    int modifyHash(treeNode *node,int v,unordered_map<treeNode*,record> &m,bool flag){
+        auto iter=m.find(node);
+        if(!node||(iter==m.end()))
+            return 0;
+        record red=iter->second;
+        if((flag&&node->value>v)||(!flag&&node->value<v))
+        {
+            m.erase(iter);
+            return red.l+red.r+1;
+        }
+        else{
+            int minus=modifyHash(flag?node->right:node->left,v,m,flag);
+            if(flag){
+                red.r=red.r-minus;                
+            }
+            else{
+                red.l=red.l-minus;
+            }
+            m.insert(make_pair(node,red));
+            return minus;
+        }
+    }
+
+    int postorderFind(treeNode *h,unordered_map<treeNode*,record> &m){
+        if(!h)
+            return 0;
+        int ls=postorderFind(h->left,m);//当前节点的左子树的最大拓扑点数
+        int rs=postorderFind(h->right,m);//当期节点的走字数的最大拓扑点数
+        modifyHash(h->left,h->value,m,true);
+        modifyHash(h->right,h->value,m,false);
+        auto lr=m.find(h->left);
+        auto rr=m.find(h->right);
+        int lbst=(lr==m.end())?0:(lr->second.l+lr->second.r+1);//算入本节点以后左子树的贡献
+        int rbst=(rr==m.end())?0:(rr->second.l+rr->second.r+1);//算入本节点以后右字数的贡献
+        m.insert(make_pair(h,record(lbst,rbst)));
+        return max(lbst+rbst+1,max(ls,rs));
+    }
+
+    int bstTopoSize2(treeNode *root){
+        unordered_map<treeNode*,record> m;
+        return postorderFind(root,m);
+    }
+
+    void printByLevel(treeNode *root){
+        if(!root)
+            return;
+        queue<treeNode*> q;
+        int level=1;
+        q.push(root);
+        treeNode *last=root,*nextLast=NULL;
+        cout<<"Level "<<(level++)<<":";
+        while(!q.empty()){
+            root=q.front();
+            q.pop();
+            cout<<root->value<<" ";
+            if(root->left){
+                q.push(root->left);
+                nextLast=root->left;
+            }
+            if(root->right){
+                q.push(root->right);
+                nextLast=root->right;
+            }
+            if(root==last&&!q.empty()){
+                cout<<"\nLevel "<<(level++)<<":";
+                last=nextLast;
+            }
+        }
+        cout<<endl;
+    }
+
+    void printLevelAndOrient(int level,bool lr){
+        cout<<"Level "<<level<<" from ";
+        cout<<(lr?"left to right:":"right to left:");
+    }
+
+    void printByZigZag(treeNode *root){
+        if(!root)
+            return;
+        deque<treeNode*> dq;
+        int level=1;
+        bool lr=true;
+        treeNode *last=root,*nlast=NULL;
+        dq.push_front(root);
+        printLevelAndOrient(level++,lr);
+        while(!dq.empty()){
+            if(lr){
+                root=dq.front();
+                dq.pop_front();
+                if(root->left){
+                    nlast=(nlast==NULL)?root->left:nlast;
+                    dq.push_back(root->left);
+                }
+                if(root->right){
+                    nlast=(nlast==NULL)?root->right:nlast;
+                    dq.push_back(root->right);
+                }
+            }
+            else{
+                root=dq.back();
+                dq.pop_back();
+                if(root->right){
+                    nlast=(nlast==NULL)?root->right:nlast;
+                    dq.push_front(root->right);
+                }
+                if(root->left){
+                    nlast=(nlast==NULL)?root->left:nlast;
+                    dq.push_front(root->left);
+                }
+            }
+            cout<<root->value<<" ";
+            if(root==last&&!dq.empty()){
+                lr=!lr;
+                last=nlast;
+                nlast=NULL;
+                cout<<endl;
+                printLevelAndOrient(level++,lr);
+            }
+        }
+        cout<<endl;
+    }
 }

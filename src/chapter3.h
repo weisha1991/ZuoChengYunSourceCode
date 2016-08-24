@@ -5,14 +5,19 @@
 #include <unordered_map>
 #include <utility>
 #include <limits.h>
+#include <deque>
 
 namespace chapter3{
     using chapter2::treeNode;
     using namespace std;
+    
+    struct record{
+        int l;
+        int r;
+        record(int left,int right):l(left),r(right){}
+    };
+
     void BTreeDestroy(treeNode *tree);
-
-
-
     string getSpace(int cnt);
     void printInorder(treeNode *head,int height,string to,int len);
     void printTree(treeNode *root);
@@ -40,6 +45,17 @@ namespace chapter3{
     treeNode* postOrder(treeNode *head,vector<int> &record);
     treeNode* largestSubBST(treeNode *root);
 
+    bool isBSTNode(treeNode *h,treeNode *n,int val);
+    int maxTOPO(treeNode *h,treeNode *n);   
+    int bstTopoSize1(treeNode *head);
+
+    int modifyHash(treeNode *node,int v,unordered_map<treeNode*,record> &m,bool flag);
+    int postorderFind(treeNode *h,unordered_map<treeNode*,record> &m);
+    int bstTopoSize2(treeNode *root);
+
+    void printByLevel(treeNode *root);
+    void printLevelAndOrient(int level,bool lr);
+    void printByZigZag(treeNode *root);
 
 }
 
