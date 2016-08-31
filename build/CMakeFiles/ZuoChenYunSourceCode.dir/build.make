@@ -141,9 +141,32 @@ CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o.provides: CMakeFiles/ZuoChen
 
 CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o.provides.build: CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o
 
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o: CMakeFiles/ZuoChenYunSourceCode.dir/flags.make
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/kmp.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o -c /home/long/workspace/ZuoChengYunSourceCode/src/kmp.cpp
+
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/long/workspace/ZuoChengYunSourceCode/src/kmp.cpp > CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.i
+
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/long/workspace/ZuoChengYunSourceCode/src/kmp.cpp -o CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.s
+
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.requires:
+.PHONY : CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.requires
+
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.provides: CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.provides.build
+.PHONY : CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.provides
+
+CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.provides.build: CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o
+
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: CMakeFiles/ZuoChenYunSourceCode.dir/flags.make
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o -c /home/long/workspace/ZuoChengYunSourceCode/src/main.cpp
 
@@ -164,13 +187,38 @@ CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o.provides: CMakeFiles/ZuoChenYunSo
 
 CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o.provides.build: CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o
 
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o: CMakeFiles/ZuoChenYunSourceCode.dir/flags.make
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o: /home/long/workspace/ZuoChengYunSourceCode/src/manacher.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/long/workspace/ZuoChengYunSourceCode/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o -c /home/long/workspace/ZuoChengYunSourceCode/src/manacher.cpp
+
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/long/workspace/ZuoChengYunSourceCode/src/manacher.cpp > CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.i
+
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/long/workspace/ZuoChengYunSourceCode/src/manacher.cpp -o CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.s
+
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.requires:
+.PHONY : CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.requires
+
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.provides: CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.provides.build
+.PHONY : CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.provides
+
+CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.provides.build: CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o
+
 # Object files for target ZuoChenYunSourceCode
 ZuoChenYunSourceCode_OBJECTS = \
 "CMakeFiles/ZuoChenYunSourceCode.dir/testUnit.cpp.o" \
 "CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.o" \
 "CMakeFiles/ZuoChenYunSourceCode.dir/chapter2.cpp.o" \
 "CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o" \
-"CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o"
+"CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o" \
+"CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o" \
+"CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o"
 
 # External object files for target ZuoChenYunSourceCode
 ZuoChenYunSourceCode_EXTERNAL_OBJECTS =
@@ -179,7 +227,9 @@ ZuoChenYunSourceCode_EXTERNAL_OBJECTS =
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.o
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/chapter2.cpp.o
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o
+/home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o
+/home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/build.make
 /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode: CMakeFiles/ZuoChenYunSourceCode.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/long/workspace/ZuoChengYunSourceCode/bin/ZuoChenYunSourceCode"
@@ -193,7 +243,9 @@ CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.di
 CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/chapter3.cpp.o.requires
 CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/chapter2.cpp.o.requires
 CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.o.requires
+CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o.requires
 CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.o.requires
+CMakeFiles/ZuoChenYunSourceCode.dir/requires: CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o.requires
 .PHONY : CMakeFiles/ZuoChenYunSourceCode.dir/requires
 
 CMakeFiles/ZuoChenYunSourceCode.dir/clean:

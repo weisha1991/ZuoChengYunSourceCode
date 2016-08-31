@@ -3,7 +3,6 @@
 #include "chapter2.h"
 #include "chapter3.h"
 #include "manacher.h"
-#include "kmp.h"
 #include <random>
 
 void testChapter1();

@@ -186,6 +186,30 @@ charpter1.cpp.s:
 	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/charpter1.cpp.s
 .PHONY : charpter1.cpp.s
 
+kmp.o: kmp.cpp.o
+.PHONY : kmp.o
+
+# target to build an object file
+kmp.cpp.o:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.o
+.PHONY : kmp.cpp.o
+
+kmp.i: kmp.cpp.i
+.PHONY : kmp.i
+
+# target to preprocess a source file
+kmp.cpp.i:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.i
+.PHONY : kmp.cpp.i
+
+kmp.s: kmp.cpp.s
+.PHONY : kmp.s
+
+# target to generate assembly for a file
+kmp.cpp.s:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/kmp.cpp.s
+.PHONY : kmp.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -209,6 +233,30 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+manacher.o: manacher.cpp.o
+.PHONY : manacher.o
+
+# target to build an object file
+manacher.cpp.o:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.o
+.PHONY : manacher.cpp.o
+
+manacher.i: manacher.cpp.i
+.PHONY : manacher.i
+
+# target to preprocess a source file
+manacher.cpp.i:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.i
+.PHONY : manacher.cpp.i
+
+manacher.s: manacher.cpp.s
+.PHONY : manacher.s
+
+# target to generate assembly for a file
+manacher.cpp.s:
+	$(MAKE) -f CMakeFiles/ZuoChenYunSourceCode.dir/build.make CMakeFiles/ZuoChenYunSourceCode.dir/manacher.cpp.s
+.PHONY : manacher.cpp.s
 
 testUnit.o: testUnit.cpp.o
 .PHONY : testUnit.o
@@ -252,9 +300,15 @@ help:
 	@echo "... charpter1.o"
 	@echo "... charpter1.i"
 	@echo "... charpter1.s"
+	@echo "... kmp.o"
+	@echo "... kmp.i"
+	@echo "... kmp.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... manacher.o"
+	@echo "... manacher.i"
+	@echo "... manacher.s"
 	@echo "... testUnit.o"
 	@echo "... testUnit.i"
 	@echo "... testUnit.s"

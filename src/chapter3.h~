@@ -71,7 +71,7 @@ namespace chapter3{
     bool isPost(int arr[],int start,int end);
 
 
-	bool isSubTree(treeNode *root1,treeNode *root2);
+	bool isSubTree(treeNode *root1,treeNode *root2)
 }
 
 

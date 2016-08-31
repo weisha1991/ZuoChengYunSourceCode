@@ -310,6 +310,6 @@ void testKMP(){
 	cout<<"输入匹配字符串:";
 	cin>>ms;
 	cout<<"KMP匹配"<<endl;
-	cout<<str.substr(kmpMatch(str,ms),ms.size())<<endl;
+	cout<<kmpMatch(str,ms)<<endl;
 }
 

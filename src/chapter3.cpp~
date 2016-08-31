@@ -533,6 +533,6 @@ Morris神级遍历方法，空间复杂度O（1）
     bool isSubTree(treeNode *root1,treeNode *root2){
     	string t1Str=serialBypreorder(root1);
     	string t2Str=serialBypreorder(root2);
-    	return kmpMatch(t1Str,t2Str)!=-1;
+    	reruen kmpMatch(t1Str,t2Str)!=-1;
     }
 }

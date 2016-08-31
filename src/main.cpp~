@@ -7,5 +7,5 @@ int main()
 	// testChapter2();
 	//testChapter3();
 //	testManacher();
-	testKMP();
+
 }
